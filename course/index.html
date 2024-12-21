@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/home.css">
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index.html">CourseSite</a>
+        </div>
+
+        <!-- Menu Links -->
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Courses <span class="dropdown-icon">&#x25BC;</span></a>
+            <ul class="dropdown-content">
+              <li><a href="#">All Courses</a></li>
+              <li><a href="#">Popular Courses</a></li>
+              <li><a href="#">Newest Courses</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">Categories <span class="dropdown-icon">&#x25BC;</span></a>
+            <ul class="dropdown-content">
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Design</a></li>
+              <li><a href="#">Marketing</a></li>
+            </ul>
+          </li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="Search for courses, categories, topics..." aria-label="Search courses" />
+          <button class="search-btn">Search</button>
+        </div>
+
+        <!-- User Account & Cart -->
+        <div class="nav-icons">
+          <div class="user-account dropdown">
+            <img src="./images/user.png" alt="User" />
+            <ul class="dropdown-content">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">My Courses</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+          <div class="cart">
+            <img src="./images/cart.png" alt="Cart" />
+            <span class="cart-badge">3</span>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="cta-btn">
+          <a href="login.html" class="btn">Sign Up</a>
+        </div>
+
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Links -->
+      <div class="nav-links-mobile">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1>Transform Your Future with Our Courses</h1>
+        <p>Learn Anytime, Anywhere with Expert Instructors</p>
+        <div class="hero-buttons">
+          <a href="login.html" class="btn primary-btn">Start Learning Today</a>
+          <a href="courses.html" class="btn secondary-btn">View Popular Courses</a>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Courses Section -->
+    <section id="featured-courses" class="featured-courses">
+      <h2>Featured Courses</h2>
+      <div class="course-container">
+        <div class="course-card">
+          <img src="https://picsum.photos/id/42/367/267" alt="Course 1">
+          <h3>Web Development Bootcamp</h3>
+          <p>Learn to build modern websites using HTML, CSS, and JavaScript.</p>
+          <div class="course-details">
+            <span class="price">$99</span>
+            <!-- <a href="" class="enroll-button">Enroll Now</a> -->
+            <a href="course-details.html?id=1" class="View Details">View Details</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="https://picsum.photos/id/43/367/267" alt="Course 2">
+          <h3>Data Science A-Z™</h3>
+          <p>Become a data scientist by learning the basics of data analysis.</p>
+          <div class="course-details">
+            <span class="price">$129</span>
+            <!-- <a href="#" class="enroll-button">Enroll Now</a> -->
+            <a href="course-details.html?id=2" class="View Details">View Details</a>
+
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="https://picsum.photos/id/60/367/267" alt="Course 3">
+          <h3>Graphic Design Masterclass</h3>
+          <p>Master the fundamentals of graphic design with practical projects.</p>
+          <div class="course-details">
+            <span class="price">$79</span>
+            <!-- <a href="#" class="enroll-button">Enroll Now</a> -->
+            <a href="course-details.html?id=3" class="View Details">View Details</a>
+
+          </div>
+        </div>
+        <div class="course-card">
+          <img src="https://picsum.photos/id/71/367/267" alt="Course 4">
+          <h3>Digital Marketing Strategy</h3>
+          <p>Learn how to create effective digital marketing campaigns.</p>
+          <div class="course-details">
+            <span class="price">$89</span>
+            <!-- <a href="#" class="enroll-button">Enroll Now</a> -->
+            <a href="course-details.html?id=4" class="View Details">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Categories Overview Section -->
+    <section id="categories" class="categories">
+      <h2>Course Categories</h2>
+      <div class="category-container">
+        <div class="category-card">
+          <img src="https://picsum.photos/id/69/367/267" alt="Web Development">
+          <h3>Web Development</h3>
+          <p>Explore various courses in web development and build modern websites.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+        <div class="category-card">
+          <img src="https://picsum.photos/id/116/367/267" alt="Data Science">
+          <h3>Data Science</h3>
+          <p>Dive into the world of data with our comprehensive data science courses.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+        <div class="category-card">
+          <img src="https://picsum.photos/id/110/367/267" alt="Graphic Design">
+          <h3>Graphic Design</h3>
+          <p>Learn the art of graphic design and create stunning visuals.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+        <div class="category-card">
+          <img src="https://picsum.photos/id/119/367/267" alt="Digital Marketing">
+          <h3>Digital Marketing</h3>
+          <p>Master digital marketing strategies and grow your online presence.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+        <div class="category-card">
+          <img src="https://picsum.photos/id/129/367/267" alt="Business">
+          <h3>Business</h3>
+          <p>Enhance your business skills with our curated business courses.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+        <div class="category-card">
+          <img src="https://picsum.photos/id/133/367/267" alt="Health & Fitness">
+          <h3>Health & Fitness</h3>
+          <p>Join our courses on health, fitness, and wellness.</p>
+          <a href="#" class="view-courses">View Courses</a>
+        </div>
+      </div>
+    </section>
+    <!-- Why Learn with Us Section -->
+    <section id="why-learn" class="why-learn">
+      <h2>Why Learn with Us?</h2>
+      <div class="benefits-container">
+        <div class="benefit-card">
+          <h3>Expert Instructors</h3>
+          <p>Learn from industry professionals with years of experience.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Flexible Learning</h3>
+          <p>Study at your own pace with courses available anytime, anywhere.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Hands-On Projects</h3>
+          <p>Engage in practical projects that enhance your learning experience.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Certifications</h3>
+          <p>Earn certificates upon completion to showcase your skills.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Community Support</h3>
+          <p>Join a community of learners and get support from peers and instructors.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Affordable Pricing</h3>
+          <p>Access high-quality education at competitive prices.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Student Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2>What Our Students Say</h2>
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <p>"This platform has transformed my career! The courses are engaging and easy to follow."</p>
+          <h3>Jane Doe</h3>
+          <span>Web Developer</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"I learned so much in such a short time. The hands-on projects helped me apply my knowledge!"</p>
+          <h3>John Smith</h3>
+          <span>Data Scientist</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"The flexibility of the courses allowed me to learn at my own pace while working full-time."</p>
+          <h3>Sarah Lee</h3>
+          <span>Marketing Specialist</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"The instructors were knowledgeable and supportive. I highly recommend this platform!"</p>
+          <h3>Michael Brown</h3>
+          <span>Graphic Designer</span>
+        </div>
+      </div>
+    </section>
+    <!-- Course Highlights Section -->
+    <section id="course-highlights" class="course-highlights">
+      <h2>Upcoming Courses</h2>
+      <div class="course-container">
+        <div class="course-cards">
+          <img src="https://via.placeholder.com/300x180" alt="Course Image">
+          <h3>JavaScript for Beginners</h3>
+          <p>Start your journey into programming with this comprehensive JavaScript course.</p>
+          <span class="date">Start Date: November 1, 2024</span>
+          <a href="#" class="enroll-button">Enroll Now</a>
+        </div>
+        <div class="course-cards">
+          <img src="https://via.placeholder.com/300x180" alt="Course Image">
+          <h3>Advanced Python Programming</h3>
+          <p>Take your Python skills to the next level with advanced concepts and applications.</p>
+          <span class="date">Start Date: November 15, 2024</span>
+          <a href="#" class="enroll-button">Enroll Now</a>
+        </div>
+        <div class="course-cards">
+          <img src="https://via.placeholder.com/300x180" alt="Course Image">
+          <h3>Data Science with R</h3>
+          <p>Master data science techniques using R and real-world data sets.</p>
+          <span class="date">Start Date: December 1, 2024</span>
+          <a href="#" class="enroll-button">Enroll Now</a>
+        </div>
+        <div class="course-cards">
+          <img src="https://via.placeholder.com/300x180" alt="Course Image">
+          <h3>Web Development Bootcamp</h3>
+          <p>Become a full-stack developer in just 12 weeks with our hands-on bootcamp.</p>
+          <span class="date">Start Date: December 15, 2024</span>
+          <a href="#" class="enroll-button">Enroll Now</a>
+        </div>
+      </div>
+    </section>
+    <!-- Pricing Plans Section -->
+    <section id="pricing" class="pricing">
+      <h2>Pricing Plans</h2>
+      <div class="pricing-container">
+        <div class="pricing-card">
+          <h3>Basic Plan</h3>
+          <p class="price">$19.99</p>
+          <ul>
+            <li>Access to 5 courses</li>
+            <li>Basic support</li>
+            <li>Community access</li>
+          </ul>
+          <a href="#" class="enroll-button">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Standard Plan</h3>
+          <p class="price">$49.99</p>
+          <ul>
+            <li>Access to all courses</li>
+            <li>Priority support</li>
+            <li>Downloadable resources</li>
+          </ul>
+          <a href="#" class="enroll-button">Get Started</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Premium Plan</h3>
+          <p class="price">$99.99</p>
+          <ul>
+            <li>Access to all courses</li>
+            <li>One-on-one mentoring</li>
+            <li>Exclusive webinars</li>
+          </ul>
+          <a href="#" class="enroll-button">Get Started</a>
+        </div>
+      </div>
+    </section>
+    <!-- Call to Action Banner Section -->
+    <section id="cta-banner" class="cta-banner">
+      <h2>Ready to Take the Next Step?</h2>
+      <p>Join our community of learners today and unlock your potential!</p>
+      <a href="#" class="cta-button">Get Started Now</a>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Your Course Name</h2>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-socials">
+          <h3>Follow Us</h3>
+          <a href="#"><img src="./images/facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="./images/twitter.png" alt="Twitter" /></a>
+          <a href="#"><img src="./images/instgram.jpg" alt="Instagram" /></a>
+          <a href="#"><img src="./images/linkdin.jpg" alt="LinkedIn" /></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Course Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+    <script src="./public/js/global.js"></script>
+  </body>
+

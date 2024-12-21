@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Quiz App</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            #quiz-container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background: #eee;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                
+            }
+
+            .question-container {
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                background: #eee;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .choices {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .choices li {
+                margin-bottom: 10px;
+            }
+
+            .score {
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="quiz-container">
+            <h1>Simple Quiz App</h1>
+            <div id="question" class="question-container"></div>
+            <ul id="choices" class="choices"></ul>
+            <button id="next-btn" style="display:none;">Next Question</button>
+            <div id="score" class="score"></div>
+        </div>
+        <script>
+            // Array of quiz questions (remains the same)
+            const quizQuestions = [
+                // JavaScript Questions
+                {
+                    question: "What is JavaScript primarily used for?",
+                    choices: ["Styling web pages", "Structuring web content", "Adding interactivity to web pages", "Managing databases"],
+                    answer: "Adding interactivity to web pages"
+                },
+                {
+                    question: "Which of the following is a primitive data type in JavaScript?",
+                    choices: ["String", "Array", "Object", "Function"],
+                    answer: "String"
+                },
+                {
+                    question: "What does '===’ operator do in JavaScript?",
+                    choices: ["Compares both value and type", "Compares value only", "Checks if variables exist", "Assigns a value"],
+                    answer: "Compares both value and type"
+                },
+                {
+                    question: "What keyword is used to declare a variable in JavaScript?",
+                    choices: ["let", "def", "var", "new"],
+                    answer: "let"
+                },
+                {
+                    question: "What is the result of 2 + '2' in JavaScript?",
+                    choices: ["'22'", "4", "NaN", "undefined"],
+                    answer: "'22'"
+                },
+                {
+                    question: "What is the purpose of the 'this' keyword in JavaScript?",
+                    choices: ["Refers to the global object", "Refers to the current function", "Refers to the current object", "Refers to a variable"],
+                    answer: "Refers to the current object"
+                },
+                {
+                    question: "Which of the following is NOT a valid JavaScript loop?",
+                    choices: ["for", "foreach", "do-while", "while"],
+                    answer: "foreach"
+                },
+                {
+                    question: "How do you write a comment in JavaScript?",
+                    choices: ["// This is a comment", "/* This is a comment */", "<!-- This is a comment -->", "// or /* */"],
+                    answer: "// or /* */"
+                },
+                {
+                    question: "Which method can be used to convert a string into an integer in JavaScript?",
+                    choices: ["parseInt()", "toInteger()", "Number()", "parseFloat()"],
+                    answer: "parseInt()"
+                },
+                {
+                    question: "Which of the following is a falsy value in JavaScript?",
+                    choices: ["'false'", "0", "'0'", "'NaN'"],
+                    answer: "0"
+                },
+                {
+                    question: "How can you define a function in JavaScript?",
+                    choices: ["function myFunc() {}", "def myFunc() {}", "let myFunc = new Function()", "func myFunc()"],
+                    answer: "function myFunc() {}"
+                },
+                {
+                    question: "Which function is used to display a message to the user in JavaScript?",
+                    choices: ["prompt()", "alert()", "confirm()", "console.log()"],
+                    answer: "alert()"
+                },
+                {
+                    question: "What does the DOM stand for?",
+                    choices: ["Document Object Model", "Data Object Model", "Display Object Manager", "Digital Object Model"],
+                    answer: "Document Object Model"
+                },
+                {
+                    question: "Which built-in method can be used to sort an array in JavaScript?",
+                    choices: ["sort()", "order()", "arrange()", "sequence()"],
+                    answer: "sort()"
+                },
+                {
+                    question: "How do you create an object in JavaScript?",
+                    choices: ["let obj = {}", "let obj = []", "let obj = new Object()", "let obj = new Array()"],
+                    answer: "let obj = {}"
+                },
+                {
+                    question: "Which method removes the last element from an array?",
+                    choices: ["pop()", "shift()", "remove()", "slice()"],
+                    answer: "pop()"
+                },
+                {
+                    question: "What is the difference between '==' and '==='?",
+                    choices: ["'==' compares value, '===' compares value and type", "'===' is for equality, '==' is for inequality", "'==' is strict comparison", "'===' is assignment"],
+                    answer: "'==' compares value, '===' compares value and type"
+                },
+                {
+                    question: "Which method adds a new element to the end of an array?",
+                    choices: ["append()", "add()", "push()", "insert()"],
+                    answer: "push()"
+                },
+                {
+                    question: "Which statement is used to terminate a loop in JavaScript?",
+                    choices: ["end", "return", "break", "exit"],
+                    answer: "break"
+                },
+                {
+                    question: "What is the correct way to define a constant in JavaScript?",
+                    choices: ["constant PI = 3.14", "var PI = 3.14", "const PI = 3.14", "let PI = 3.14"],
+                    answer: "const PI = 3.14"
+                },
+                {
+                    question: "How can you convert a string into a number in JavaScript?",
+                    choices: ["Number()", "toNumber()", "parseInt()", "String()"],
+                    answer: "Number()"
+                },
+                {
+                    question: "Which of the following is used to handle exceptions in JavaScript?",
+                    choices: ["try...catch", "if...else", "catch...finally", "throw...catch"],
+                    answer: "try...catch"
+                },
+                {
+                    question: "Which array method creates a new array with all elements that pass the test implemented by the provided function?",
+                    choices: ["map()", "reduce()", "filter()", "find()"],
+                    answer: "filter()"
+                },
+                {
+                    question: "What does 'NaN' mean in JavaScript?",
+                    choices: ["Not a Null", "Negative and Null", "Not a Number", "New array Name"],
+                    answer: "Not a Number"
+                },
+                {
+                    question: "What does 'JSON' stand for?",
+                    choices: ["JavaScript Object Notation", "JavaScript Online Notation", "Java System Object Notation", "JavaScript On Networks"],
+                    answer: "JavaScript Object Notation"
+                },
+                {
+                    question: "How do you create a new Promise in JavaScript?",
+                    choices: ["new Promise()", "Promise.create()", "new Promise(resolve, reject)", "Promise()"],
+                    answer: "new Promise(resolve, reject)"
+                },
+                {
+                    question: "Which method returns the character at a specific index in a string?",
+                    choices: ["charAt()", "indexOf()", "substring()", "slice()"],
+                    answer: "charAt()"
+                },
+                {
+                    question: "Which keyword is used to define a class in JavaScript?",
+                    choices: ["class", "constructor", "new", "this"],
+                    answer: "class"
+                },
+                {
+                    question: "Which of the following is NOT a JavaScript framework?",
+                    choices: ["React", "Vue.js", "Angular", "Django"],
+                    answer: "Django"
+                },
+
+                // Vue.js Questions
+                {
+                    question: "What is Vue.js primarily used for?",
+                    choices: ["Building APIs", "Server-side scripting", "Building user interfaces", "Database management"],
+                    answer: "Building user interfaces"
+                },
+                {
+                    question: "Which directive in Vue.js is used for conditional rendering?",
+                    choices: ["v-show", "v-if", "v-bind", "v-for"],
+                    answer: "v-if"
+                },
+                {
+                    question: "Which Vue.js directive binds a value to an element?",
+                    choices: ["v-bind", "v-model", "v-show", "v-for"],
+                    answer: "v-bind"
+                },
+                {
+                    question: "How can you define a Vue component?",
+                    choices: ["Vue.component()", "new VueComponent()", "defineComponent()", "Vue.createComponent()"],
+                    answer: "Vue.component()"
+                },
+                {
+                    question: "What is the purpose of Vue Router?",
+                    choices: ["Handle form submission", "Manage application routing", "State management", "Data binding"],
+                    answer: "Manage application routing"
+                },
+                {
+                    question: "Which lifecycle hook is called after the instance has been mounted in Vue?",
+                    choices: ["mounted", "created", "beforeMount", "updated"],
+                    answer: "mounted"
+                },
+                {
+                    question: "How can you access Vue component data?",
+                    choices: ["this.data", "this.$data", "data()", "getData()"],
+                    answer: "this.$data"
+                },
+                {
+                    question: "What is Vuex used for in Vue.js?",
+                    choices: ["Routing", "State management", "Form handling", "Event handling"],
+                    answer: "State management"
+                },
+                {
+                    question: "Which directive in Vue.js is used to loop through an array?",
+                    choices: ["v-for", "v-loop", "v-repeat", "v-foreach"],
+                    answer: "v-for"
+                },
+                {
+                    question: "How do you pass data to child components in Vue?",
+                    choices: ["props", "data", "v-bind", "emit"],
+                    answer: "props"
+                },
+                {
+                    question: "What is the Vue.js Composition API?",
+                    choices: ["An alternative way to define components", "A new version of Vuex", "A plugin for Vue.js", "A replacement for Vue Router"],
+                    answer: "An alternative way to define components"
+                },
+                {
+                    question: "What does the 'v-model' directive do?",
+                    choices: ["Handles two-way data binding", "Attaches event listeners", "Executes conditional rendering", "Loops through data"],
+                    answer: "Handles two-way data binding"
+                },
+                {
+                    question: "Which method can be used to emit an event in Vue?",
+                    choices: ["this.$emit()", "this.$dispatch()", "this.$on()", "emitEvent()"],
+                    answer: "this.$emit()"
+                },
+                {
+                    question: "What is the purpose of the 'ref' attribute in Vue?",
+                    choices: ["To reference DOM elements", "To bind data", "To emit events", "To manage routes"],
+                    answer: "To reference DOM elements"
+                },
+                {
+                    question: "Which Vue.js directive is used for binding HTML attributes?",
+                    choices: ["v-bind", "v-html", "v-model", "v-if"],
+                    answer: "v-bind"
+                },
+                {
+                    question: "What is a Vue.js mixin?",
+                    choices: ["A component state", "A reusable component", "A set of reusable options", "A form handler"],
+                    answer: "A set of reusable options"
+                },
+                {
+                    question: "What does the Vue 'watch' option do?",
+                    choices: ["Watches for changes in the DOM", "Watches for changes in a data property", "Watches for route changes", "Monitors state changes"],
+                    answer: "Watches for changes in a data property"
+                },
+                {
+                    question: "What is the purpose of 'key' in v-for?",
+                    choices: ["To uniquely identify each element", "To bind a value", "To filter items", "To store a reference"],
+                    answer: "To uniquely identify each element"
+                }
+                // ... add more questions here as needed
+            ];
+
+
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let timeRemaining = 10; // 10 seconds per question
+            let timer; // For countdown
+            let highScore = localStorage.getItem('highScore') || 0;
+
+            // HTML elements
+            const questionElement = document.getElementById("question");
+            const choicesElement = document.getElementById("choices");
+            const nextButton = document.getElementById("next-btn");
+            const scoreElement = document.getElementById("score");
+            const feedbackElement = document.createElement("div"); // For feedback
+            feedbackElement.id = "feedback";
+            document.body.appendChild(feedbackElement); // Append feedback div
+
+            // Timer display element
+            const timerElement = document.createElement("div");
+            timerElement.id = "timer";
+            document.body.appendChild(timerElement);
+
+            // Function to load a question
+            function loadQuestion() {
+                // Shuffle questions before starting
+                if (currentQuestionIndex === 0) {
+                    shuffleQuestions();
+                }
+
+                const currentQuestion = quizQuestions[currentQuestionIndex];
+                questionElement.textContent = currentQuestion.question;
+                choicesElement.innerHTML = ''; // Clear previous choices
+                feedbackElement.textContent = ''; // Clear previous feedback
+                timeRemaining = 10; // Reset time
+
+                currentQuestion.choices.forEach((choice, index) => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<input type="radio" name="answer" value="${choice}" id="choice${index}">
+                        <label for="choice${index}">${choice}</label>`;
+                    choicesElement.appendChild(li);
+                });
+
+                nextButton.style.display = "none"; // Hide the next button until an answer is selected
+                startTimer(); // Start the countdown timer
+            }
+
+            // Function to start the countdown timer
+            function startTimer() {
+                clearInterval(timer); // Clear any previous timer
+                timerElement.textContent = `Time left: ${timeRemaining} seconds`;
+
+                timer = setInterval(() => {
+                    timeRemaining--;
+                    timerElement.textContent = `Time left: ${timeRemaining} seconds`;
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(timer);
+                        feedbackElement.textContent = "Time's up!";
+                        setTimeout(nextQuestion, 1000); // Move to the next question after a brief delay
+                    }
+                }, 1000);
+            }
+
+            // Function to check the selected answer
+            function checkAnswer() {
+                const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+                if (!selectedAnswer) {
+                    alert("Please select an answer!");
+                    return;
+                }
+
+                const answer = selectedAnswer.value;
+                const correctAnswer = quizQuestions[currentQuestionIndex].answer;
+
+                clearInterval(timer); // Stop the timer when an answer is selected
+
+                if (answer === correctAnswer) {
+                    score++;
+                    feedbackElement.textContent = "Correct!";
+                } else {
+                    feedbackElement.textContent = "Incorrect!";
+                }
+
+                // Show the next button
+                nextButton.style.display = "inline";
+            }
+
+            // Function to move to the next question or show results
+            function nextQuestion() {
+                currentQuestionIndex++;
+
+                if (currentQuestionIndex < quizQuestions.length) {
+                    loadQuestion(); // Load the next question
+                } else {
+                    // End of quiz
+                    questionElement.textContent = "Quiz completed!";
+                    choicesElement.innerHTML = '';
+                    nextButton.style.display = "none"; // Hide the next button
+                    scoreElement.textContent = `Your score is ${score} out of ${quizQuestions.length}`;
+
+                    // Check and update high score
+                    if (score > highScore) {
+                        highScore = score;
+                        localStorage.setItem('highScore', highScore);
+                    }
+
+                    // Display the high score
+                    scoreElement.innerHTML += `<br>High Score: ${highScore}`;
+                }
+            }
+
+            // Function to shuffle the questions array
+            function shuffleQuestions() {
+                for (let i = quizQuestions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [quizQuestions[i], quizQuestions[j]] = [quizQuestions[j], quizQuestions[i]];
+                }
+            }
+
+            // Load the first question
+            loadQuestion();
+
+            // Event listener for clicking on answers
+            choicesElement.addEventListener('click', checkAnswer);
+
+            // Event listener for the next button
+            nextButton.addEventListener('click', nextQuestion);
+
+
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="./public/css/global.css">
+    <link rel="stylesheet" href="./public/css/course-details.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="index.html">CourseSite</a>
+          </div>
+  
+          <!-- Menu Links -->
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a href="#">Courses <span class="dropdown-icon">&#x25BC;</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">All Courses</a></li>
+                <li><a href="#">Popular Courses</a></li>
+                <li><a href="#">Newest Courses</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Categories <span class="dropdown-icon">&#x25BC;</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Design</a></li>
+                <li><a href="#">Marketing</a></li>
+              </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+  
+          <!-- Search Bar -->
+          <div class="search-bar">
+            <input type="text" placeholder="Search for courses, categories, topics..." aria-label="Search courses" />
+            <button class="search-btn">Search</button>
+          </div>
+  
+          <!-- User Account & Cart -->
+          <div class="nav-icons">
+            <div class="user-account dropdown">
+              <img src="./images/user.png" alt="User" />
+              <ul class="dropdown-content">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">My Courses</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </div>
+            <div class="cart">
+              <img src="./images/cart.png" alt="Cart" />
+              <span class="cart-badge">3</span>
+            </div>
+          </div>
+  
+          <!-- CTA Button -->
+          <div class="cta-btn">
+            <a href="#" class="btn">Sign Up</a>
+          </div>
+  
+          <!-- Hamburger Menu (Mobile) -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+  
+        <!-- Mobile Navigation Links -->
+        <div class="nav-links-mobile">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+      </nav>
+  
+    <!-- Header Section -->
+    <header class="course-header">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> > <a href="courses.html">Courses</a> > <span id="course-title"></span>
+        </div>
+        <div class="header-content">
+            <h1 id="course-title-header">Course Title</h1>
+            <div class="course-meta">
+                <span class="category" id="course-category"></span>
+                <span class="difficulty" id="course-difficulty"></span>
+                <span class="rating" id="course-rating"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="course-overview">
+        <div class="course-price">
+            <span id="course-price"></span> <span class="discounted" id="course-discounted-price"></span>
+        </div>
+        <button class="enroll-btn">Enroll Now</button>
+        <p class="course-description" id="course-description">
+        </p>
+    </section>
+
+    <!-- Instructor Info Section -->
+    <section class="instructor-info">
+        <img id="instructor-photo" class="instructor-photo" alt="Instructor">
+        <div class="instructor-details">
+            <h3>Instructor: <span id="instructor-name"></span></h3>
+            <p id="instructor-bio"></p>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="course-curriculum">
+        <h2>Course Curriculum</h2>
+        <div class="accordion" id="course-curriculum">
+            <!-- Curriculum will be injected here dynamically -->
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="course-reviews">
+        <h2>Student Reviews</h2>
+        <div class="review-summary">
+            <span id="review-summary"></span>
+        </div>
+        <div class="review-list" id="review-list">
+            <!-- Reviews will be injected here dynamically -->
+        </div>
+    </section>
+
+    <!-- Related Courses Section -->
+    <section class="related-courses">
+        <h2>Related Courses</h2>
+        <div class="related-courses-list" id="related-courses">
+            <!-- Related courses will be injected here dynamically -->
+        </div>
+    </section>
+
+    <script src="./public//js/courses.js"></script>
+    <script src="./public/css/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Section */
+.course-header {
+    margin-top: 80px;
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.breadcrumbs {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.breadcrumbs a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-content h1 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.course-meta {
+    font-size: 14px;
+}
+
+.course-meta .category,
+.course-meta .difficulty {
+    margin-right: 10px;
+}
+
+/* Overview Section */
+.course-overview {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.course-price {
+    font-size: 24px;
+    color: #3f51b5;
+}
+
+.discounted {
+    text-decoration: line-through;
+    color: #777;
+    margin-left: 10px;
+}
+
+.enroll-btn {
+    padding: 10px 20px;
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.course-description {
+    margin-top: 20px;
+}
+
+/* Instructor Info Section */
+.instructor-info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.instructor-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.instructor-details {
+    flex-grow: 1;
+}
+
+/* Curriculum Section */
+.course-curriculum {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Reviews Section */
+.course-reviews {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.review-summary {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-item {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.review-rating {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Related Courses Section */
+.related-courses {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.course-card {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .instructor-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .instructor-photo {
+        margin-bottom: 10px;
+    }
+}

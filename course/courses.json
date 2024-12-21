@@ -1,0 +1,96 @@
+[
+    {
+        "id": 1,
+        "title": "JavaScript for Beginners",
+        "category": "Programming",
+        "difficulty": "Beginner",
+        "rating": 4.7,
+        "price": 49.99,
+        "discounted_price": 29.99,
+        "description": "Learn the basics of JavaScript, the most popular programming language for web development.",
+        "instructor": {
+            "name": "John Doe",
+            "bio": "John has been a software engineer for 10+ years, teaching JavaScript to thousands of students worldwide.",
+            "photo": "path/to/instructor-photo.jpg"
+        },
+        "curriculum": [
+            {
+                "title": "Introduction to JavaScript",
+                "content": "Learn about variables, functions, and loops in this introductory module."
+            },
+            {
+                "title": "Working with DOM",
+                "content": "Learn how to manipulate the Document Object Model using JavaScript."
+            }
+        ],
+        "reviews": [
+            {
+                "rating": 5,
+                "text": "Great course for beginners!"
+            },
+            {
+                "rating": 4,
+                "text": "Well explained concepts."
+            }
+        ],
+        "relatedCourses": [
+            {
+                "title": "Advanced JavaScript",
+                "category": "Programming",
+                "price": 59.99
+            },
+            {
+                "title": "JavaScript Frameworks",
+                "category": "Programming",
+                "price": 69.99
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "CSS Mastery",
+        "category": "Web Design",
+        "difficulty": "Intermediate",
+        "rating": 4.5,
+        "price": 39.99,
+        "discounted_price": 19.99,
+        "description": "Take your CSS skills to the next level and learn modern layout techniques like Flexbox and Grid.",
+        "instructor": {
+            "name": "Jane Smith",
+            "bio": "Jane is a web designer and developer with over 8 years of experience in creating beautiful, responsive websites.",
+            "photo": "path/to/instructor-photo2.jpg"
+        },
+        "curriculum": [
+            {
+                "title": "CSS Fundamentals",
+                "content": "Review the basics of CSS, selectors, and properties."
+            },
+            {
+                "title": "Advanced Layouts",
+                "content": "Dive into advanced layout techniques using Flexbox and CSS Grid."
+            }
+        ],
+        "reviews": [
+            {
+                "rating": 5,
+                "text": "Best CSS course I've taken!"
+            },
+            {
+                "rating": 4,
+                "text": "Learned a lot of new techniques."
+            }
+        ],
+        "relatedCourses": [
+            {
+                "title": "HTML & CSS Fundamentals",
+                "category": "Web Design",
+                "price": 29.99
+            },
+            {
+                "title": "Responsive Web Design",
+                "category": "Web Design",
+                "price": 49.99
+            }
+        ]
+    }
+]

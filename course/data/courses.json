@@ -1,0 +1,24 @@
+ [
+    {
+        "id": 1,
+        "title": "JavaScript for Beginners",
+        "category": "web-development",
+        "difficulty": "beginner",
+        "price": 50
+    },
+    {
+        "id": 2,
+        "title": "Advanced CSS Techniques",
+        "category": "web-development",
+        "difficulty": "advanced",
+        "price": 75
+    },
+    {
+        "id": 3,
+        "title": "Data Science with Python",
+        "category": "data-science",
+        "difficulty": "intermediate",
+        "price": 100
+    }
+]
+
